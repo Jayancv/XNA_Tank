@@ -195,7 +195,7 @@ namespace tankUI
             }
 
         }
-        private void DrawWater()
+        private void DrawWater()            // method to draw water
         {
             try
             {

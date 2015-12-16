@@ -5,7 +5,7 @@ using System.Text;
 
 namespace tankUI.Inside
 {
-    class Coin
+    public class Coin
     {
         int value;            //coin value
         int time;             //display time
@@ -20,5 +20,6 @@ namespace tankUI.Inside
             this.y = y;
            // this.com = com;
         }
+
     }
 }

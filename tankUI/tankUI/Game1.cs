@@ -33,15 +33,18 @@ namespace tankUI
         Texture2D brickTexture;
         Texture2D stoneTexture;
         Texture2D waterTexture;
-        Player[] players = new Player[5];
-        int[] terrainContour;
+        Texture2D healthPackTexture;
+        Texture2D coinTexture;
+        public List<Player> players;
+       
         Client client;
-        public Player player0, player1, player2, player3, player4;
+        //public Player player0, player1, player2, player3, player4;
         private StringEvaluator eval;
         public List<Vector2> bricks;             //Store brick coordinates 
         public List<Vector2> stones;             //store Stone coordinates
         public List<Vector2> water1;             //store water corrdinates
-
+        public List<Vector2> coins;
+        public List<Vector2> lifePacks; 
 
         public Game1()
         {
@@ -49,9 +52,12 @@ namespace tankUI
             Content.RootDirectory = "Content";
             client = new Client();
             eval = new StringEvaluator();
+            players = new List<Player>();
             bricks = new List<Vector2>();
             stones = new List<Vector2>();
             water1 = new List<Vector2>();
+            coins = new List<Vector2>();
+            lifePacks = new List<Vector2>();
 
 
         }
@@ -73,50 +79,7 @@ namespace tankUI
         }
 
 
-        private void SetUpPlayers()
-        {
-
-
-            player0 = new Player();
-            player1 = new Player();
-            player2 = new Player();
-            player3 = new Player();
-            player4 = new Player();
-
-            
-            player1.Color = Color.Red;
-            player2.Color = Color.Green;
-            player3.Color = Color.Blue;
-            player4.Color = Color.Purple;
-            player0.Color = Color.Yellow;
-            
-            /*
-            player1.Position = new Vector2(100, 193);
-            player2.Position = new Vector2(200, 212);
-            player3.Position = new Vector2(300, 361);
-            player4.Position = new Vector2(400, 164);
-
-             */
-
-            players[0] = player0;
-            players[1] = player1;
-            players[2] = player2;
-            players[3] = player3;
-            players[4] = player4;
-
-
-            for (int i = 0; i < 4; i++)
-            {
-                // players[i].IsAlive = true;
-
-                //players[i].IsAlive = true;
-                // players[i].Color = playerColors[i];
-
-
-            }
-
-
-        }
+       
 
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
@@ -129,12 +92,7 @@ namespace tankUI
             device = graphics.GraphicsDevice;
 
 
-            //  Texture2D texture;
-
-
-
             backgroundTexture = Content.Load<Texture2D>("background");
-            // backgroundTexture = Content.Load<Texture2D>("background");
             foregroundTexture = Content.Load<Texture2D>("background2");
             screenWidth = device.PresentationParameters.BackBufferWidth;
             screenHeight = device.PresentationParameters.BackBufferHeight;
@@ -142,10 +100,13 @@ namespace tankUI
             brickTexture = Content.Load<Texture2D>("brick1");
             stoneTexture = Content.Load<Texture2D>("stone1");
             waterTexture = Content.Load<Texture2D>("water");
+            coinTexture = Content.Load<Texture2D>("coin");
+            healthPackTexture = Content.Load<Texture2D>("health");
 
-            //GenerateTerrainContour();
+
+            
             CreateForeground();
-            SetUpPlayers();
+            
         }
 
         /// <summary>
@@ -168,8 +129,8 @@ namespace tankUI
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // TODO: Add your update logic here
             eval.evaluate(client.data, this);
+            ProcessKeyboard();
             base.Update(gameTime);
         }
 
@@ -183,15 +144,17 @@ namespace tankUI
 
             spriteBatch.Begin();
             DrawScenery();
-            DrawPlayers();
+            
             DrawBricks();
             DrawStones();
             DrawWater();
+            DrawPlayers();
+            DrawCoin();
+            DrawLife();
             spriteBatch.End();
 
             base.Draw(gameTime);
         }
-
 
 
         private void DrawScenery()
@@ -205,23 +168,23 @@ namespace tankUI
         {
             try
             {
-                Rectangle rect = new Rectangle(1, 1, 48, 48);
+                Rectangle rect = new Rectangle(1, 1, 50, 50);
                 foreach (Vector2 brick in bricks)
                 {
+
                     spriteBatch.Draw(brickTexture, brick, rect, Color.White);
                 }
             }
             catch (Exception e)
             {
-
-
             }
         }
+
         private void DrawStones()
         {
             try
             {
-                Rectangle rect = new Rectangle(1, 1, 48, 48);
+                Rectangle rect = new Rectangle(1, 1, 50,50);
                 foreach (Vector2 stone in stones)
                 {
                     spriteBatch.Draw(stoneTexture, stone, rect, Color.White);
@@ -229,8 +192,6 @@ namespace tankUI
             }
             catch (Exception e)
             {
-
-
             }
 
         }
@@ -238,7 +199,7 @@ namespace tankUI
         {
             try
             {
-                Rectangle rect = new Rectangle(1, 1, 48, 48);
+                Rectangle rect = new Rectangle(1, 1, 50,50);
                 foreach (Vector2 water in water1)
                 {
                     spriteBatch.Draw(waterTexture, water, rect, Color.White);
@@ -248,13 +209,55 @@ namespace tankUI
             {
             }
         }
+        private void DrawLife()
+        {
+            try
+            {
+                Rectangle rect = new Rectangle(1, 1, 50, 50);
+                foreach (Vector2 life in lifePacks)
+                {
+                    spriteBatch.Draw(healthPackTexture, life, Color.White);
+                }
+            }
+            catch (Exception e)
+            {
+            }
+        }
+        private void DrawCoin()
+        {
+            try
+            {
+                Rectangle rect = new Rectangle(1, 1, 50, 50);
+                foreach (Vector2 coin in coins)
+                {
+                    spriteBatch.Draw(coinTexture, coin, Color.White);
+                }
+            }
+            catch (Exception e)
+            {
+            }
+        }
         private void DrawPlayers()
         {
-            Rectangle rect = new Rectangle(1, 1, 48,48);
+            
             foreach (Player player in players)
             {
-                spriteBatch.Draw(tankTexture, player.Position, rect, player.Color);
+                int d = player.getDirection();
+                Vector2 po = player.getPossition();
+                float angle = (float)Math.PI / 2.0f;
+                spriteBatch.Draw(tankTexture, po, null, player.Color, angle * d, new Vector2(25,25),1, SpriteEffects.None,1);
             }
+        }
+
+        private void check(Vector2 vec)
+        {
+            bool ckCoin = coins.Contains(vec);
+            if (ckCoin)
+                coins.Remove(vec);
+            bool ckLife = lifePacks.Contains(vec);
+            if (ckLife)
+                lifePacks.Remove(vec);
+
         }
 
         private void CreateForeground()
@@ -275,9 +278,34 @@ namespace tankUI
 
             foregroundTexture = new Texture2D(device, screenWidth, screenHeight, false, SurfaceFormat.Color);
             foregroundTexture.SetData(foregroundColors);
-            // foregroundColorArray = TextureTo2DArray(foregroundTexture);
+      
         }
 
        
+
+
+
+
+
+
+        private void ProcessKeyboard()
+        {
+            KeyboardState keybState = Keyboard.GetState();
+            if (keybState.IsKeyDown(Keys.Left))
+                client.send("LEFT#");
+            if (keybState.IsKeyDown(Keys.Right))
+                client.send("RIGHT#");
+            if (keybState.IsKeyDown(Keys.Down))
+                client.send("DOWN#");
+            if (keybState.IsKeyDown(Keys.Up))
+                client.send("UP#");
+            if (keybState.IsKeyDown(Keys.Enter) || keybState.IsKeyDown(Keys.Space))
+                client.send("SHOOT#");
+            
+        }
+
+
+
+
     }
 }

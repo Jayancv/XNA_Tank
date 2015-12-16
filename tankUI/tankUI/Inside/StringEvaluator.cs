@@ -14,6 +14,7 @@ namespace tankUI.Inside
         private Game1 com;
         private string data;
         private Player P1, P2, P3, P4, P0;     //player objects , only 5 object
+       
 
         public StringEvaluator()
         {
@@ -26,6 +27,7 @@ namespace tankUI.Inside
         }
         public void evaluate(String data, Game1 com)
         {
+            try { 
             this.com = com;
             this.data = data;
             data = data.Remove(data.Length - 1);
@@ -49,6 +51,10 @@ namespace tankUI.Inside
             else if (lines[0] == "L")                   // L means life packet
             {
                 life(lines);
+            }
+            }
+            catch (NullReferenceException e)
+            {
             }
         }
 
@@ -88,13 +94,19 @@ namespace tankUI.Inside
             int time = Int32.Parse(lines[2]);
 
             Coin coin = new Coin(x, y, time, val);
+            Vector2 co = new Vector2(x*50, y*50);
+            com.coins.Add(co);
             // Button bn = com.selectbtn(x,y);
 
-            //   Thread coin_thread = new Thread(()=>com.coinUpdate(bn,time)); //create new thread to update coin ;
-            //   coin_thread.Start();                                          //start thread
+             Thread coin_thread = new Thread(()=>coinUpdate(time,co)); //create new thread to update coin ;
+             coin_thread.Start();                                          //start thread
         }
-
-
+        public void coinUpdate(int time, Vector2 v)
+        {
+            // coinDisplay(btn);
+            Thread.Sleep(time);
+            com.coins.Remove(v);
+        }
 
         //create Life Packets
         private void life(String[] lines)
@@ -105,14 +117,19 @@ namespace tankUI.Inside
             int val = 10;
             int time = Int32.Parse(lines[2]);
 
-
             LifePack life = new LifePack(x, y, time, val);
+            Vector2 li = new Vector2(x * 50, y * 50);
+            com.coins.Add(li);
             //  Button bn = com.selectbtn(x, y);
 
-            //  Thread coin_thread = new Thread(() => com.lifeUpdate(bn, time)); //create new thread to update life Packt ;
-            //  coin_thread.Start();
-
-
+            Thread coin_thread = new Thread(() => lifeUpdate(time,li)); //create new thread to update life Packt ;
+            coin_thread.Start();
+        }
+        public void lifeUpdate(int time, Vector2 v)
+        {
+            // coinDisplay(btn);
+            Thread.Sleep(time);
+            com.coins.Remove(v);
         }
 
         //create new tank/players
@@ -129,33 +146,44 @@ namespace tankUI.Inside
 
                 if (sublines[0] == "P0")
                 {
-                    //P1 = new Player(x,y,dir); 
-                    com.player0.setX(x);
-                    com.player0.setY(y);
+                    P0 = new Player(); 
+                    P0.setX(x);
+                    P0.setY(y);
+                    P0.Color = Color.Red;
+                    com.players.Add(P0);
+                    
                 }
                 else if (sublines[0] == "P1")
                 {
-                    //P2 = new Player(x,y,dir); 
-                    com.player1.setX(x);
-                    com.player1.setY(y);
+                    P1 = new Player(); 
+                    P1.setX(x);
+                    P1.setY(y);
+                    P1.Color = Color.Yellow;
+                    com.players.Add(P1);
                 }
                 else if (sublines[0] == "P2")
                 {
-                    //P3 = new Player(x,y,dir);  
-                    com.player2.setX(x);
-                    com.player2.setY(y);
+                    P2 = new Player();  
+                    P2.setX(x);
+                    P2.setY(y);
+                    P2.Color = Color.Green;
+                    com.players.Add(P2);
                 }
                 else if (sublines[0] == "P3")
                 {
-                    //P4 = new Player(x,y,dir);  
-                    com.player3.setX(x);
-                    com.player3.setY(y);
+                    P3 = new Player();  
+                    P3.setX(x);
+                    P3.setY(y);
+                    P3.Color = Color.Blue;
+                    com.players.Add(P3);
                 }
                 else if (sublines[0] == "P4")
                 {
-                    //P0 = new Player(x,y,dir);   
-                    com.player4.setX(x);
-                    com.player4.setY(y);
+                    P4 = new Player();   
+                    P4.setX(x);
+                    P4.setY(y);
+                    P4.Color = Color.Purple;
+                    com.players.Add(P4);
                 }
                 // Button bn = com.selectbtn(x, y);
                 // com.tankDisplay(bn, sublines[0], dir);
@@ -173,94 +201,100 @@ namespace tankUI.Inside
                 String[] dire = Regex.Split(sublines[1], ",");
                 int x1 = Int32.Parse(dire[0]);
                 int y1 = Int32.Parse(dire[1]);
-                int d = Int32.Parse(sublines[2]);
-                bool s;
+                int d = Int32.Parse(sublines[2]);            //Direction
+                bool s;                                      //Shoot
                 if (sublines[3] == "1")
                     s = true;
                 else
                     s = false;
-                int h = Int32.Parse(sublines[4]);
-                int c = Int32.Parse(sublines[5]);
-                int p = Int32.Parse(sublines[6]);
+                int h = Int32.Parse(sublines[4]);             //health
+                int c = Int32.Parse(sublines[5]);             //coin
+                int p = Int32.Parse(sublines[6]);             //points
               //  int x0 = 0;
               //  int y0 = 0;
                 if (h != 0)
                 {
-                    if (sublines[0] == "P1")
+                    if (sublines[0] == "P0")
                     {
                        // P1.move(x1, y1, d, s, h, p, c);
                        // x0 = P1.getPreviousX();
                        // y0 = P1.getPreviousY();
-                        com.player0.setX(x1);
+                        P0.setX(x1);
+                        P0.setY(y1);
+                        P0.setVariable(d,s,h,p,c);
+                    }
+                    else if (sublines[0] == "P1")
+                    {
+                       // P2.move(x1, y1, d, s, h, p, c);
+                       // x0 = P2.getPreviousX();
+                       // y0 = P2.getPreviousY();
+                        P1.setX(x1);
+                        P1.setY(y1);
+                        P1.setVariable(d, s, h, p, c);
                     }
                     else if (sublines[0] == "P2")
                     {
-                        P2.move(x1, y1, d, s, h, p, c);
-                        x0 = P2.getPreviousX();
-                        y0 = P2.getPreviousY();
+                       // P3.move(x1, y1, d, s, h, p, c);
+                       // x0 = P3.getPreviousX();
+                       // y0 = P3.getPreviousY();
+                        P2.setX(x1);
+                        P2.setY(y1);
+                        P2.setVariable(d, s, h, p, c);
                     }
                     else if (sublines[0] == "P3")
                     {
-                        P3.move(x1, y1, d, s, h, p, c);
-                        x0 = P3.getPreviousX();
-                        y0 = P3.getPreviousY();
+                       // P4.move(x1, y1, d, s, h, p, c);
+                       // x0 = P4.getPreviousX();
+                       // y0 = P4.getPreviousY();
+                        P3.setX(x1);
+                        P3.setY(y1);
+                        P3.setVariable(d, s, h, p, c);
                     }
                     else if (sublines[0] == "P4")
                     {
-                        P4.move(x1, y1, d, s, h, p, c);
-                        x0 = P4.getPreviousX();
-                        y0 = P4.getPreviousY();
-                    }
-                    else if (sublines[0] == "P0")
-                    {
-                        P0.move(x1, y1, d, s, h, p, c);
-                        x0 = P0.getPreviousX();
-                        y0 = P0.getPreviousY();
+                       // P0.move(x1, y1, d, s, h, p, c);
+                       // x0 = P0.getPreviousX();
+                       // y0 = P0.getPreviousY();
+                        P4.setX(x1);
+                        P4.setY(y1);
+                        P4.setVariable(d, s, h, p, c);
                     }
                     //     Button bn = com.selectbtn(x1, y1);
 
                     //    Button pre = com.selectbtn(x0, y0);
                     //    com.tankMove(pre, bn, sublines[0], d);
                 }
+                    
                 else
                 {
                     if (sublines[0] == "P1")
                     {
-
-                        x0 = P1.getPreviousX();
-                        y0 = P1.getPreviousY();
+                        com.players.Remove(P1);
                     }
                     else if (sublines[0] == "P2")
                     {
-
-                        x0 = P2.getPreviousX();
-                        y0 = P2.getPreviousY();
+                        com.players.Remove(P2);
                     }
                     else if (sublines[0] == "P3")
                     {
-
-                        x0 = P3.getPreviousX();
-                        y0 = P3.getPreviousY();
+                        com.players.Remove(P3);
                     }
                     else if (sublines[0] == "P4")
                     {
-
-                        x0 = P4.getPreviousX();
-                        y0 = P4.getPreviousY();
+                        com.players.Remove(P4);
                     }
                     else if (sublines[0] == "P0")
                     {
-
-                        x0 = P0.getPreviousX();
-                        y0 = P0.getPreviousY();
+                        com.players.Remove(P0);
                     }
-                    // Button bn = com.selectbtn(x1, y1);
+                  
                     // com.tankDisappear(bn);
 
                 }
 
 
             }
+            /*
             String dam = lines[lines.Length - 1];
             string[] bric = Regex.Split(dam, ";");
             for (int n = 0; n < bric.Length; n++)
@@ -273,6 +307,7 @@ namespace tankUI.Inside
                 // com.brickDamage(bn2, damage);
 
             }
+             * */
 
         }
 

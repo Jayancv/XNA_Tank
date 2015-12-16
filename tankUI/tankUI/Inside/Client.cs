@@ -61,17 +61,20 @@ namespace tankUI.Inside
 
                 int i;
                 data = null;
-
-                while ((i = r_stream.Read(bytes, 0, bytes.Length)) != 0)
+                try
                 {
-                    data = System.Text.Encoding.ASCII.GetString(bytes, 0, i);
+                    while ((i = r_stream.Read(bytes, 0, bytes.Length)) != 0)
+                    {
+                        data = System.Text.Encoding.ASCII.GetString(bytes, 0, i);
+                    }
+                    string[] lines = Regex.Split(data, ":");
+                    //eval.evaluate(data);
+
+                    r_stream.Close();
+                    listner.Stop();
+                    reciever.Close();
                 }
-                string[] lines = Regex.Split(data, ":");
-                //eval.evaluate(data);
-                
-                r_stream.Close();
-                listner.Stop();
-                reciever.Close();
+                catch (Exception e) { }
             }
         }
       

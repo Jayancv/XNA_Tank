@@ -30,7 +30,8 @@ namespace tankUI.Inside
         }
          * */
         public Player() {
-            x = 0; y = 0;
+            
+            dir = 0;
         }
         public void move(int x1, int y1, int dir1, bool sh, int h1, int p1, int c1)
         {
@@ -62,7 +63,7 @@ namespace tankUI.Inside
             this.y =y1;
         }
         public Vector2 getPossition(){
-            Vector2 vect = new Vector2(x, y);
+            Vector2 vect = new Vector2((x*50)+25, (y*50)+25);
             return vect;
         }
         public void setDirection(int d)
@@ -72,6 +73,16 @@ namespace tankUI.Inside
         public int getDirection()
         {
             return dir;
+        }
+        public void setVariable(int d,bool s,int helth, int pt, int c)
+        {
+
+            dir = d;
+            health = helth;
+            points = pt;
+            coins = c;
+            shot = s;
+
         }
     }
 }

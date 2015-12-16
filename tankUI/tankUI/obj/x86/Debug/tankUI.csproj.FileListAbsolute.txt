@@ -1,0 +1,16 @@
+c:\users\jayan\documents\visual studio 2013\Projects\tankUI\tankUI\tankUI\bin\x86\Debug\tankUI.exe
+c:\users\jayan\documents\visual studio 2013\Projects\tankUI\tankUI\tankUI\bin\x86\Debug\tankUI.pdb
+c:\users\jayan\documents\visual studio 2013\Projects\tankUI\tankUI\tankUI\obj\x86\Debug\tankUI.csprojResolveAssemblyReference.cache
+c:\users\jayan\documents\visual studio 2013\Projects\tankUI\tankUI\tankUI\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+c:\users\jayan\documents\visual studio 2013\Projects\tankUI\tankUI\tankUI\obj\x86\Debug\tankUI.exe
+c:\users\jayan\documents\visual studio 2013\Projects\tankUI\tankUI\tankUI\obj\x86\Debug\tankUI.pdb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUI\bin\x86\Debug\Content\background.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUI\bin\x86\Debug\Content\background2.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUI\bin\x86\Debug\Content\button.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUI\bin\x86\Debug\Content\SpriteFont1.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUI\bin\x86\Debug\Content\tank1.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUI\bin\x86\Debug\Content\coin.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUI\bin\x86\Debug\Content\health.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUI\bin\x86\Debug\Content\water.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUI\bin\x86\Debug\Content\brick1.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUI\bin\x86\Debug\Content\stone1.xnb

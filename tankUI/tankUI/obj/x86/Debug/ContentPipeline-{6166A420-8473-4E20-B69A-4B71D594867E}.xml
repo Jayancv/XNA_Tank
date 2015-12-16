@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>background.jpg</Source>
+      <Name>background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUI\bin\x86\Debug\Content\background.xnb</Output>
+      <Time>2015-12-09T06:02:41.22603+05:30</Time>
+    </Item>
+    <Item>
+      <Source>background2.jpg</Source>
+      <Name>background2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUI\bin\x86\Debug\Content\background2.xnb</Output>
+      <Time>2015-12-08T21:17:07.6971745+05:30</Time>
+    </Item>
+    <Item>
+      <Source>button.png</Source>
+      <Name>button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUI\bin\x86\Debug\Content\button.xnb</Output>
+      <Time>2015-12-09T07:33:05.6328697+05:30</Time>
+    </Item>
+    <Item>
+      <Source>SpriteFont1.spritefont</Source>
+      <Name>SpriteFont1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUI\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2015-12-09T07:34:32.1411704+05:30</Time>
+    </Item>
+    <Item>
+      <Source>tank1.png</Source>
+      <Name>tank1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUI\bin\x86\Debug\Content\tank1.xnb</Output>
+      <Time>2015-12-10T16:14:18.0404445+05:30</Time>
+    </Item>
+    <Item>
+      <Source>coin.png</Source>
+      <Name>coin</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUI\bin\x86\Debug\Content\coin.xnb</Output>
+      <Time>2015-12-16T11:02:00.5879731+05:30</Time>
+    </Item>
+    <Item>
+      <Source>health.png</Source>
+      <Name>health</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUI\bin\x86\Debug\Content\health.xnb</Output>
+      <Time>2015-12-16T11:02:10.0445245+05:30</Time>
+    </Item>
+    <Item>
+      <Source>water.jpg</Source>
+      <Name>water</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUI\bin\x86\Debug\Content\water.xnb</Output>
+      <Time>2015-12-16T11:02:19.7860896+05:30</Time>
+    </Item>
+    <Item>
+      <Source>brick1.jpg</Source>
+      <Name>brick1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUI\bin\x86\Debug\Content\brick1.xnb</Output>
+      <Time>2015-12-16T11:55:37.9444381+05:30</Time>
+    </Item>
+    <Item>
+      <Source>stone1.jpg</Source>
+      <Name>stone1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUI\bin\x86\Debug\Content\stone1.xnb</Output>
+      <Time>2015-12-16T11:55:47.3797638+05:30</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{6166A420-8473-4E20-B69A-4B71D594867E}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUIContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUI\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUI\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUI\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+05:30</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T16:22:30+05:30</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+05:30</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+05:30</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+05:30</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T16:22:30+05:30</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2015-12-05T09:57:35.9002324+05:30</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

@@ -8,7 +8,7 @@ namespace tankUI.Inside
 {
    public  class Player
     {
-        private int x0, y0, x, y;
+        private int  x, y;
         private int dir;
         private int health, points, coins;
         bool shot;
@@ -35,8 +35,6 @@ namespace tankUI.Inside
         }
         public void move(int x1, int y1, int dir1, bool sh, int h1, int p1, int c1)
         {
-            x0 = x;                                //for previous place 
-            y0 = y;                                //for previous place 
             x = x1;                                //new place 
             y = y1;
             dir = dir1;
@@ -46,14 +44,7 @@ namespace tankUI.Inside
             shot = sh;
 
         }
-        public int getPreviousX()
-        {
-            return x0;
-        }
-        public int getPreviousY()
-        {
-            return y0;
-        }
+       
         public void setX(int x1)
         {
             this.x = x1;

@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Media;
 using System.Threading;
 using System.Threading.Tasks;
 using tankUI.Inside;
+using System.Collections;
 
 namespace tankUI
 {
@@ -30,24 +31,27 @@ namespace tankUI
         Texture2D waterTexture;
         Texture2D healthPackTexture;
         Texture2D coinTexture;
-        public List<Player> players;
+        public ArrayList players;
        
         Client client;
-        //public Player player0, player1, player2, player3, player4;
+     
         private StringEvaluator eval;
         public List<Vector2> bricks;             //Store brick coordinates 
         public List<Vector2> stones;             //store Stone coordinates
         public List<Vector2> water1;             //store water corrdinates
         public List<Vector2> coins;
-        public List<Vector2> lifePacks; 
+        public List<Vector2> lifePacks;
 
+
+       // ArrayList threadSafeList = ArrayList.Synchronized(list);
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             client = new Client();
             eval = new StringEvaluator();
-            players = new List<Player>();
+            players = new ArrayList();
+            ArrayList threadSafeList = ArrayList.Synchronized(players);
             bricks = new List<Vector2>();
             stones = new List<Vector2>();
             water1 = new List<Vector2>();
@@ -87,8 +91,6 @@ namespace tankUI
             coinTexture = Content.Load<Texture2D>("coin");
             healthPackTexture = Content.Load<Texture2D>("health");
 
-
-            
             CreateForeground();
             
         }
@@ -132,9 +134,10 @@ namespace tankUI
             DrawBricks();
             DrawStones();
             DrawWater();
-            DrawPlayers();
+            
             DrawCoin();
             DrawLife();
+            DrawPlayers();
             spriteBatch.End();
 
             base.Draw(gameTime);
@@ -155,7 +158,6 @@ namespace tankUI
                 Rectangle rect = new Rectangle(1, 1, 50, 50);
                 foreach (Vector2 brick in bricks)
                 {
-
                     spriteBatch.Draw(brickTexture, brick, rect, Color.White);
                 }
             }

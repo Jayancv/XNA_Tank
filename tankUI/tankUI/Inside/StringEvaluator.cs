@@ -13,7 +13,7 @@ namespace tankUI.Inside
 
         private Game1 com;
         private string data;
-        private Player P1, P2, P3, P4, P0;     //player objects , only 5 object
+        public Player P1, P2, P3, P4, P0;     //player objects , only 5 object
        
 
         public StringEvaluator()
@@ -40,8 +40,8 @@ namespace tankUI.Inside
             {
                 coin(lines);
             }
-            else if (lines[0] == "S")
-            {                  // S means players initiate
+            else if (lines[0] == "S")                   // S means players initiate
+            {                  
                  newPlayer(lines);
             }
             else if (lines[0] == "G")                   // G means Game world updates
@@ -76,9 +76,6 @@ namespace tankUI.Inside
                         com.stones.Add(v);
                     if (x == 4)
                         com.water1.Add(v);
-
-                    // Button bn= com.selectbtn(a, b);
-                    //  com.updateBtn(bn,x);
                 }
             }
         }
@@ -96,6 +93,7 @@ namespace tankUI.Inside
             Coin coin = new Coin(x, y, time, val);
             Vector2 co = new Vector2(x*50, y*50);
             com.coins.Add(co);
+            
             // Button bn = com.selectbtn(x,y);
 
              Thread coin_thread = new Thread(()=>coinUpdate(time,co)); //create new thread to update coin ;
@@ -103,7 +101,6 @@ namespace tankUI.Inside
         }
         public void coinUpdate(int time, Vector2 v)
         {
-            // coinDisplay(btn);
             Thread.Sleep(time);
             com.coins.Remove(v);
         }
@@ -294,7 +291,7 @@ namespace tankUI.Inside
 
 
             }
-            /*
+            
             String dam = lines[lines.Length - 1];
             string[] bric = Regex.Split(dam, ";");
             for (int n = 0; n < bric.Length; n++)
@@ -303,11 +300,17 @@ namespace tankUI.Inside
                 int x2 = Int32.Parse(cod[0]);
                 int y2 = Int32.Parse(cod[1]);
                 int damage = Int32.Parse(cod[2]);
+                if (damage == 4)
+                {
+                    Vector2 vec1 = new Vector2(x2 * 50, y2 * 50);
+                    com.bricks.Remove(vec1);
+                }
+
                 // Button bn2 = com.selectbtn(x2, y2);
                 // com.brickDamage(bn2, damage);
 
             }
-             * */
+             
 
         }
 

@@ -119,17 +119,17 @@ namespace tankUI.Inside
 
             LifePack life = new LifePack(x, y, time, val);
             Vector2 li = new Vector2(x * 50, y * 50);
-            com.coins.Add(li);
+            com.lifePacks.Add(li);
             //  Button bn = com.selectbtn(x, y);
 
-            Thread coin_thread = new Thread(() => lifeUpdate(time,li)); //create new thread to update life Packt ;
-            coin_thread.Start();
+            Thread life_thread = new Thread(() => lifeUpdate(time,li)); //create new thread to update life Packt ;
+            life_thread.Start();
         }
         public void lifeUpdate(int time, Vector2 v)
         {
             // coinDisplay(btn);
             Thread.Sleep(time);
-            com.coins.Remove(v);
+            com.lifePacks.Remove(v);
         }
 
         //create new tank/players

@@ -242,9 +242,11 @@ namespace tankUI
             
             foreach (Player player in players)
             {
+
                 int d = player.getDirection();
                 Vector2 po = player.getPossition();
                 float angle = (float)Math.PI / 2.0f;
+                check(po);
                 spriteBatch.Draw(tankTexture, po, null, player.Color, angle * d, new Vector2(25,25),1, SpriteEffects.None,1);
             }
         }

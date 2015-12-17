@@ -14,11 +14,6 @@ using tankUI.Inside;
 
 namespace tankUI
 {
-    /// <summary>
-    /// This is the main type for your game
-    /// </summary>
-    /// 
-
 
     public class Game1 : Microsoft.Xna.Framework.Game
     {
@@ -58,33 +53,22 @@ namespace tankUI
             water1 = new List<Vector2>();
             coins = new List<Vector2>();
             lifePacks = new List<Vector2>();
-
-
         }
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+           
             client.send("JOIN#");
             IsMouseVisible = true;
             graphics.PreferredBackBufferWidth = 800;
             graphics.PreferredBackBufferHeight = 650;
             graphics.IsFullScreen = false;
             graphics.ApplyChanges();
-            Window.Title = "JC Rocket";
-
-
+            Window.Title = "JC Tank";
             base.Initialize();
 
         }
 
-
-       
-
-        /// <summary>
-        /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
-        /// </summary>
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
@@ -281,13 +265,6 @@ namespace tankUI
       
         }
 
-       
-
-
-
-
-
-
         private void ProcessKeyboard()
         {
             KeyboardState keybState = Keyboard.GetState();
@@ -303,9 +280,6 @@ namespace tankUI
                 client.send("SHOOT#");
             
         }
-
-
-
 
     }
 }

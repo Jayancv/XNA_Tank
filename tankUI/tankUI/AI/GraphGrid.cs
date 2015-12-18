@@ -21,38 +21,38 @@ namespace tankUI.AI
             new Point(0, 1)
         };
 
-    public static int width = 20, height=20;
-    public HashSet<Point> stones = new HashSet<Point>();
-    public HashSet<Point> water = new HashSet<Point>();
-    public HashSet<Point> bricks = new HashSet<Point>();
+        public static int width = 20, height=20;
+        public HashSet<Point> stones = new HashSet<Point>();
+        public HashSet<Point> water = new HashSet<Point>();
+        public HashSet<Point> bricks = new HashSet<Point>();
 
-    public bool InBounds(Point id)      //within the grid
-    {
-        return 0 <= id.X && id.X < width
-            && 0 <= id.Y && id.Y < height;
-    }
-
-    public bool Passable(Point id)              //can go through the block
-    {
-        return !(stones.Contains(id) || water.Contains(id) || bricks.Contains(id));
-    }
-
-    public int Cost(Point a, Point b)
-    {
-        return (stones.Contains(b) || water.Contains(b) || bricks.Contains(b)) ? 5 : 1;
-    }
-    
-    public IEnumerable<Point> Neighbors(Point id)
-    {
-        foreach (var dir in Direction) 
+        public bool InBounds(Point id)      //within the grid
         {
-            Point next = new Point(id.X + dir.X, id.Y + dir.Y);
-            if (InBounds(next) && Passable(next))
+            return 0 <= id.X && id.X < width
+                && 0 <= id.Y && id.Y < height;
+        }
+
+        public bool Passable(Point id)              //can go through the block
+        {
+            return !(stones.Contains(id) || water.Contains(id) || bricks.Contains(id));
+        }
+
+        public int Cost(Point a, Point b)
+        {
+            return (stones.Contains(b) || water.Contains(b) || bricks.Contains(b)) ? 5 : 1;
+        }
+    
+        public IEnumerable<Point> Neighbors(Point id)
+        {
+            foreach (var dir in Direction) 
             {
-                yield return next;
+                Point next = new Point(id.X + dir.X, id.Y + dir.Y);
+                if (InBounds(next) && Passable(next))
+                {
+                    yield return next;
+                }
             }
         }
-    }
 
     }
 }

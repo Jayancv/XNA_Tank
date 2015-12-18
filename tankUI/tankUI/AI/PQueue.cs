@@ -11,7 +11,10 @@ namespace tankUI.AI
 
         public int Count
         {
-            get { return elements.Count; }
+            get 
+            { 
+                return elements.Count; 
+            }
         }
 
         public void Enqueue(T item, int priority)

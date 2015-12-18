@@ -14,11 +14,12 @@ namespace tankUI.Inside
         private Game1 com;
         private string data;
         public Player P1, P2, P3, P4, P0;     //player objects , only 5 object
+        int counter;
        
 
         public StringEvaluator()
         {
-
+            counter = 0;
         }
         public void conn()
         {
@@ -132,10 +133,10 @@ namespace tankUI.Inside
         //create new tank/players
         private void newPlayer(String[] lines)
         {
+            if (counter < 5) { 
             for (int i = 1; i < lines.Length; i++)
             {
                 string[] sublines = Regex.Split(lines[i], ";");
-
                 string[] location = Regex.Split(sublines[1], ",");
                 int x = Int32.Parse(location[0]);
                 int y = Int32.Parse(location[1]);
@@ -185,6 +186,7 @@ namespace tankUI.Inside
                 // Button bn = com.selectbtn(x, y);
                 // com.tankDisplay(bn, sublines[0], dir);
 
+            } counter++;
             }
         }
 

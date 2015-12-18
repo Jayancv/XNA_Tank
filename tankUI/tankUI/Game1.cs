@@ -12,6 +12,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using tankUI.Inside;
 using System.Collections;
+using System.Linq;
+
 
 namespace tankUI
 {
@@ -31,7 +33,7 @@ namespace tankUI
         Texture2D waterTexture;
         Texture2D healthPackTexture;
         Texture2D coinTexture;
-        public ArrayList players;
+        public List<Player> players;
        
         Client client;
      
@@ -50,8 +52,8 @@ namespace tankUI
             Content.RootDirectory = "Content";
             client = new Client();
             eval = new StringEvaluator();
-            players = new ArrayList();
-            ArrayList threadSafeList = ArrayList.Synchronized(players);
+            players = new List<Player>();
+           // ArrayList threadSafeList = ArrayList.Synchronized(players);
             bricks = new List<Vector2>();
             stones = new List<Vector2>();
             water1 = new List<Vector2>();
@@ -225,16 +227,24 @@ namespace tankUI
         }
         private void DrawPlayers()
         {
-            
-            foreach (Player player in players)
+            int count = 0;
+           //List<Vector2> LstItems = players.Skip(Math.Max(0, players.Count() - 2));
+            var coun = players.Count;
+            int no = players.Count;
+            foreach (Player player in players.Skip(coun -no))
             {
+
+                if (true) { 
 
                 int d = player.getDirection();
                 Vector2 po = player.getPossition();
                 float angle = (float)Math.PI / 2.0f;
                 check(po);
                 spriteBatch.Draw(tankTexture, po, null, player.Color, angle * d, new Vector2(25,25),1, SpriteEffects.None,1);
+                count++;
+                }
             }
+            count = 0;
         }
 
         private void check(Vector2 vec)

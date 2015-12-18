@@ -123,11 +123,11 @@ namespace tankUI.Inside
             Thread life_thread = new Thread(() => lifeUpdate(time,li)); //create new thread to update life Packt ;
             life_thread.Start();
         }
-        public void lifeUpdate(int time, Vector2 v)
+        public void lifeUpdate(int time, Vector2 li)
         {
             // coinDisplay(btn);
             Thread.Sleep(time);
-            com.lifePacks.Remove(v);
+            com.lifePacks.Remove(li);
         }
 
         //create new tank/players
@@ -149,6 +149,7 @@ namespace tankUI.Inside
                     P0.setY(y);
                     P0.Color = Color.Red;
                     com.players.Add(P0);
+                    counter++;
                     
                 }
                 else if (sublines[0] == "P1")
@@ -158,6 +159,8 @@ namespace tankUI.Inside
                     P1.setY(y);
                     P1.Color = Color.Yellow;
                     com.players.Add(P1);
+                    counter++;
+
                 }
                 else if (sublines[0] == "P2")
                 {
@@ -166,6 +169,7 @@ namespace tankUI.Inside
                     P2.setY(y);
                     P2.Color = Color.Green;
                     com.players.Add(P2);
+                    counter++;
                 }
                 else if (sublines[0] == "P3")
                 {
@@ -174,6 +178,7 @@ namespace tankUI.Inside
                     P3.setY(y);
                     P3.Color = Color.Blue;
                     com.players.Add(P3);
+                    counter++;
                 }
                 else if (sublines[0] == "P4")
                 {
@@ -182,11 +187,12 @@ namespace tankUI.Inside
                     P4.setY(y);
                     P4.Color = Color.Purple;
                     com.players.Add(P4);
+                    counter++;
                 }
                 // Button bn = com.selectbtn(x, y);
                 // com.tankDisplay(bn, sublines[0], dir);
 
-            } counter++;
+            } 
             }
         }
 

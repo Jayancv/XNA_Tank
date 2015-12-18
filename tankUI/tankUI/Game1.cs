@@ -50,7 +50,7 @@ namespace tankUI
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            client = new Client();
+            client = new Client(this);
             eval = new StringEvaluator();
             players = new List<Player>();
            // ArrayList threadSafeList = ArrayList.Synchronized(players);
@@ -71,6 +71,7 @@ namespace tankUI
             graphics.IsFullScreen = false;
             graphics.ApplyChanges();
             Window.Title = "JC Tank";
+            
             base.Initialize();
 
         }
@@ -117,9 +118,13 @@ namespace tankUI
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            eval.evaluate(client.data, this);
+            //eval.evaluate(client.data, this);
             ProcessKeyboard();
             base.Update(gameTime);
+        }
+        public void call()
+        {
+            eval.evaluate(client.data, this);
         }
 
         /// <summary>
@@ -136,10 +141,10 @@ namespace tankUI
             DrawBricks();
             DrawStones();
             DrawWater();
-            
+            DrawPlayers();
             DrawCoin();
             DrawLife();
-            DrawPlayers();
+            
             spriteBatch.End();
 
             base.Draw(gameTime);
@@ -230,12 +235,10 @@ namespace tankUI
             int count = 0;
            //List<Vector2> LstItems = players.Skip(Math.Max(0, players.Count() - 2));
             var coun = players.Count;
-            int no = players.Count;
-            foreach (Player player in players.Skip(coun -no))
+            int no = players.Count +1;
+            foreach (Player player in players)//.Skip(coun -5))
             {
-
                 if (true) { 
-
                 int d = player.getDirection();
                 Vector2 po = player.getPossition();
                 float angle = (float)Math.PI / 2.0f;
@@ -255,7 +258,6 @@ namespace tankUI
             bool ckLife = lifePacks.Contains(vec);
             if (ckLife)
                 lifePacks.Remove(vec);
-
         }
 
         private void CreateForeground()

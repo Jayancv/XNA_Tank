@@ -23,16 +23,17 @@ namespace tankUI.Inside
 
         public string data;
 
-        public Client()
+        public Client(Game1 com)
         {
             thread = new Thread(new ThreadStart(recieve));      //create new thread object
             eval = new StringEvaluator();                    //create eval object
+            this.com = com;
         }
 
         //to send message to the server
         public void send(string message)
         {
-           // this.com = com;                                   //initiate variable
+                                               //initiate variable
             client = new TcpClient();
             client.Connect(IPAddress.Parse(ip), portIn);
             Stream stream = client.GetStream();
@@ -69,6 +70,7 @@ namespace tankUI.Inside
                     }
                     string[] lines = Regex.Split(data, ":");
                     //eval.evaluate(data);
+                    com.call();
 
                     r_stream.Close();
                     listner.Stop();

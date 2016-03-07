@@ -43,8 +43,10 @@ namespace tankUI
         public List<Vector2> water1;             //store water corrdinates
         public List<Vector2> coins;
         public List<Vector2> lifePacks;
+        //ic List<Vector2> players;
 
 
+        
        // ArrayList threadSafeList = ArrayList.Synchronized(list);
         public Game1()
         {
@@ -120,6 +122,7 @@ namespace tankUI
 
             //eval.evaluate(client.data, this);
             ProcessKeyboard();
+            //client.send("LEFT#");
             base.Update(gameTime);
         }
         public void call()
@@ -258,6 +261,8 @@ namespace tankUI
             bool ckLife = lifePacks.Contains(vec);
             if (ckLife)
                 lifePacks.Remove(vec);
+           // Console.WriteLine(ckCoin);
+           // Console.WriteLine(coi);
         }
 
         private void CreateForeground()
@@ -275,10 +280,8 @@ namespace tankUI
                         foregroundColors[x + y * screenWidth] = Color.Transparent;
                 }
             }
-
             foregroundTexture = new Texture2D(device, screenWidth, screenHeight, false, SurfaceFormat.Color);
             foregroundTexture.SetData(foregroundColors);
-      
         }
 
         private void ProcessKeyboard()
@@ -293,8 +296,7 @@ namespace tankUI
             if (keybState.IsKeyDown(Keys.Up))
                 client.send("UP#");
             if (keybState.IsKeyDown(Keys.Enter) || keybState.IsKeyDown(Keys.Space))
-                client.send("SHOOT#");
-            
+                client.send("SHOOT#");  
         }
 
     }

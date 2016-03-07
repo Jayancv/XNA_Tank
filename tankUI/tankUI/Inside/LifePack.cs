@@ -7,10 +7,12 @@ namespace tankUI.Inside
 {
     class LifePack
     {
-        int life;
+       
         int time;
-        int x;
-        int y;
+        public int x { get; set; }
+        public int y { get; set; }
+        public int life { get; set; }
+        public int appearTimeStamp { get; set; }
        // Form1 com;
         public LifePack(int x, int y, int time, int val)
         {
@@ -18,9 +20,11 @@ namespace tankUI.Inside
             this.life = val;
             this.x = x;
             this.y = y;
+            this.appearTimeStamp = appearTimeStamp;
            // this.com = com;
 
         }
+     
 
     }
 }

@@ -74,11 +74,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AI\AStarSearchAlgo.cs" />
+    <Compile Include="AI\Cell.cs" />
     <Compile Include="AI\GraphGrid.cs" />
     <Compile Include="AI\PQueue.cs" />
     <Compile Include="AI\Search.cs" />
+    <Compile Include="Inside\Brick.cs" />
     <Compile Include="Inside\Client.cs" />
     <Compile Include="Inside\Coin.cs" />
+    <Compile Include="Inside\Gamer.cs" />
     <Compile Include="Inside\LifePack.cs" />
     <Compile Include="Inside\Player.cs" />
     <Compile Include="Inside\StringEvaluator.cs" />

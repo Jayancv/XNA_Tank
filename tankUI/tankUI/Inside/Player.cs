@@ -8,9 +8,9 @@ namespace tankUI.Inside
 {
    public  class Player
     {
-        private int  x, y;
+        
         private int dir;
-        private int health, points, coins;
+        private int  points, coins;
         bool shot;
         public Vector2 Position;
         public bool IsAlive= true;
@@ -44,7 +44,10 @@ namespace tankUI.Inside
             shot = sh;
 
         }
-       
+        public int health { get; set; }
+        public int x { get; set; }
+        public int y { get; set; }
+        public int playerNumber { get; set; }
         public void setX(int x1)
         {
             this.x = x1;

@@ -7,11 +7,13 @@ namespace tankUI.Inside
 {
     public class Coin
     {
-        int value;            //coin value
-        int time;             //display time
-        int x;
-        int y;
+       
         Game1 com;
+        public int x { get; set; }
+        public int y{ get; set; }
+        public int value { get; set; }
+        public int time { get; set; }
+        public int appearTimeStamp { get; set; }
         public Coin(int x, int y, int time, int val)
         {
             this.time = time;

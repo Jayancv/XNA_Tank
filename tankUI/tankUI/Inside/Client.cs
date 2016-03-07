@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using tankUI.Inside;
 
 namespace tankUI.Inside
 {
@@ -22,12 +23,14 @@ namespace tankUI.Inside
         private Int32 portOut = 7000;  //port to recieve
 
         public string data;
+        //public int clock;
 
         public Client(Game1 com)
         {
             thread = new Thread(new ThreadStart(recieve));      //create new thread object
             eval = new StringEvaluator();                    //create eval object
             this.com = com;
+            //clock = 0;
         }
 
         //to send message to the server
@@ -71,6 +74,14 @@ namespace tankUI.Inside
                     string[] lines = Regex.Split(data, ":");
                     //eval.evaluate(data);
                     com.call();
+                    if (data.StartsWith("G")){
+                    
+                     send("RIGHT#");
+                   //  Gamer.gameClock++;
+                    // com.gameClock += 1;
+                    
+                    }
+                   
 
                     r_stream.Close();
                     listner.Stop();

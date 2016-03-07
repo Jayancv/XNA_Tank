@@ -5,7 +5,7 @@ using System.Text;
 
 namespace tankUI.Inside
 {
-    class LifePack
+    public class LifePack
     {
        
         int time;

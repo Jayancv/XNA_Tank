@@ -3,22 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using System.Threading.Tasks;
 
 namespace tankUI.AI
 {
     class AStarSearchAlgo
-    {
-        public Dictionary<Point, Point> cameFrom = new Dictionary<Point, Point>();
-        public Dictionary<Point, int> costSoFar = new Dictionary<Point, int>();
+   {
+      // contains cells that have already been examined. 
+        public Dictionary<Cell, Cell> cameFrom = new Dictionary<Cell, Cell>();
 
-        static public int Heuristic(Point a, Point b)
+        // contains cost for each cell that have already been examined. 
+        public Dictionary<Cell, int> costSoFar = new Dictionary<Cell, int>();
+
+        // Note: a generic version of A* would abstract over Cell and
+        // also Heuristic
+        static public int Heuristic(Cell a, Cell b)
         {
-            return Math.Abs(a.X - b.X) + Math.Abs(a.Y - b.Y);
+            return Math.Abs(a.x - b.x) + Math.Abs(a.y - b.y);
         }
 
-        public AStarSearchAlgo(WeightedGraph<Point> graph, Point start, Point goal)
+        public AStarSearchAlgo(Grid graph, Cell start, Cell goal)
         {
-            var frontier = new PQueue<Point>();
+            //  Priority Queue which contains cells that are candidates for examining, lowest priority to the node with the lowest f value
+            var frontier = new PQueue<Cell>();
             frontier.Enqueue(start, 0);
 
             cameFrom[start] = start;
@@ -28,23 +35,28 @@ namespace tankUI.AI
             {
                 var current = frontier.Dequeue();
 
-                if (current.Equals(goal))
-                {
-                    break;
-                }
+                // Exit the search if goal have discovered
+                if (current.Equals(goal)) { break; }
 
+                // discovers the neighbours
                 foreach (var next in graph.Neighbors(current))
                 {
                     int newCost = costSoFar[current] + graph.Cost(current, next);
+
                     if (!costSoFar.ContainsKey(next) || newCost < costSoFar[next])
                     {
                         costSoFar[next] = newCost;
+
+                        // f = g + h
                         int priority = newCost + Heuristic(next, goal);
+
                         frontier.Enqueue(next, priority);
                         cameFrom[next] = current;
                     }
                 }
             }
         }
+
+
     }
 }

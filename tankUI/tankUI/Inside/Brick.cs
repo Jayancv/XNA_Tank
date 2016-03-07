@@ -7,7 +7,7 @@ namespace tankUI.Inside
 {
     public class Brick
     {
-         public int locationX { get; set; }
+        public int locationX { get; set; }
         public int locationY { get; set; }
         public int damageLevel { get; set; }
         public Boolean isFull { get; set; }
@@ -16,5 +16,6 @@ namespace tankUI.Inside
         {
 
         }
+    
     }
 }

@@ -7,45 +7,46 @@ using tankUI.Inside;
 namespace tankUI.AI
 {
     class Search
-    { private int myPlayerNo;
-        private Gamer game;
+    {
+         private int myPlayerNo;
+        private Game2 game;
 
         private int timeCostToTarget;
         int lowestTimeCostToCoinPile = 1000;
         int lowestTimeCostToLifePack = 1000;
 
         // store the found paths before examine the reachability
-        private Stack<Point> path;
+        private Stack<Cell> path;
 
-        private Stack<Point> pathToNearestLifePack;
-        private Stack<Point> pathToNearestCoinPile;
+        private Stack<Cell> pathToNearestLifePack;
+        private Stack<Cell> pathToNearestCoinPile;
 
         private Coin accuiredCoin;
-        private LifePack accuiredLifePacket;
+        private LifePacket accuiredLifePacket;
 
-        public Search(Gamer game)
+        public Search(Game2 game)
         {
             this.game = game;
             this.myPlayerNo = game.myPlayerNumber;
 
-            path = new Stack<Point>();
-            pathToNearestLifePack = new Stack<Point>();
-            pathToNearestCoinPile = new Stack<Point>();
+            path = new Stack<Cell>();
+            pathToNearestLifePack = new Stack<Cell>();
+            pathToNearestCoinPile = new Stack<Cell>();
         }
 
         void DrawPath()
         {
-            foreach (Point item in path)
+            foreach (Cell item in path)
             {
                 Console.WriteLine(item.x.ToString() + ", " + item.y.ToString());
             }
         }
 
-        void BuildPath(Point start, Point goal, Dictionary<Point, Point> cameFrom)
+        void BuildPath(Cell start, Cell goal, Dictionary<Cell, Cell> cameFrom)
         {
             int timeCostToTarget = 0;
 
-            Point current = goal;
+            Cell current = goal;
             path.Push(current);
             while (current.x != start.x || current.y != start.y)
             {
@@ -57,14 +58,14 @@ namespace tankUI.AI
             this.timeCostToTarget = timeCostToTarget;
         }
 
-        private bool FilterStraightPath(Point start, Point goal, Dictionary<Point, Point> cameFrom)
+        private bool FilterStraightPath(Cell start, Cell goal, Dictionary<Cell, Cell> cameFrom)
         {
 
             if (start.x != goal.x && start.y != goal.y) { return false; }
             if (start.x == goal.x && start.y == goal.y) { return false; }
             if (start.x == goal.x)
             {
-                Point current = goal;
+                Cell current = goal;
                 path.Push(current);
                 while (current.x != start.x || current.y != start.y)
                 {
@@ -79,7 +80,7 @@ namespace tankUI.AI
             }
             else
             {
-                Point current = goal;
+                Cell current = goal;
                 path.Push(current);
                 while (current.x != start.x || current.y != start.y)
                 {
@@ -92,7 +93,7 @@ namespace tankUI.AI
             return true;
         }
 
-        public Point findPath(Game1 game)
+        public Cell findPath(Game2 game)
         {
             lowestTimeCostToCoinPile = 1000;
             lowestTimeCostToLifePack = 1000;
@@ -109,17 +110,17 @@ namespace tankUI.AI
                     // set bricks 
                     if (board[i, j] == "B")
                     {
-                        grid.brickWalls.Add(new Point(j, i));
+                        grid.brickWalls.Add(new Cell(j, i));
                     }
                     // set stones
                     else if (board[i, j] == "S")
                     {
-                        grid.stone.Add(new Point(j, i));
+                        grid.stone.Add(new Cell(j, i));
                     }
                     // set water
                     else if (board[i, j] == "W")
                     {
-                        grid.water.Add(new Point(j, i));
+                        grid.water.Add(new Cell(j, i));
                     }
                 }
             }
@@ -134,12 +135,12 @@ namespace tankUI.AI
                     // set bricks 
                     if (board[i, j] == "B")
                     {
-                        gridWithoutWater.brickWalls.Add(new Point(j, i));
+                        gridWithoutWater.brickWalls.Add(new Cell(j, i));
                     }
                     // set stones
                     else if (board[i, j] == "S")
                     {
-                        gridWithoutWater.stone.Add(new Point(j, i));
+                        gridWithoutWater.stone.Add(new Cell(j, i));
                     }
 
                 }
@@ -187,7 +188,7 @@ namespace tankUI.AI
                     game.me = p;
                 }
             }
-            var start = new Point(game.me.playerLocationX, game.me.playerLocationY);
+            var start = new Cell(game.me.playerLocationX, game.me.playerLocationY);
             //Console.WriteLine("my current location is "+ game.me.playerLocationX + game.me.playerLocationY);
 
             //#################### Begins the Procedure to Get the proper goal to follow. #####################################
@@ -229,9 +230,9 @@ namespace tankUI.AI
                 }
 
 
-                Point goal = new Point(enemy.playerLocationX, enemy.playerLocationY);
+                Cell goal = new Cell(enemy.playerLocationX, enemy.playerLocationY);
                 //  Console.WriteLine(game.myPlayerNumber+" Enemy Loc "+ goal.x + ","+ goal.y + "Enemy NO " + enemy.playerNumber + " -----------------------------------------------------");
-                var pathFinder = new PathFinder(gridWithoutWater, start, goal);
+                var pathFinder = new AStarSearchAlgo(gridWithoutWater, start, goal);
 
 
                 //if the enemy is straight to me ( Now I have a life threat )
@@ -241,7 +242,7 @@ namespace tankUI.AI
                     game.enemyPresents = true;
                     if (path.Count != 0)
                     {
-                        Point nextCell = path.Pop();
+                        Cell nextCell = path.Pop();
                         path.Clear();
                         return nextCell;
                     }
@@ -258,7 +259,7 @@ namespace tankUI.AI
             {
                 //  Console.WriteLine("lowestTimeCost= " + lowestTimeCostToLifePack + " timeCostToTarget= " + timeCostToTarget + " lifeTime" + lifePack.lifeTime);
 
-                Point goal = new Point(lifePack.locationX, lifePack.locationY);
+                Cell goal = new Cell(lifePack.locationX, lifePack.locationY);
 
                 if (start.x == goal.x && start.y == goal.y) // otherwise pathfinder will break
                 {
@@ -268,7 +269,7 @@ namespace tankUI.AI
 
                 }
 
-                var pathFinder = new PathFinder(grid, start, goal);
+                var pathFinder = new AStarSearchAlgo(grid, start, goal);
                 BuildPath(start, goal, pathFinder.cameFrom);
 
                 // filter the reachable life packs in time
@@ -280,7 +281,7 @@ namespace tankUI.AI
                     // keep the backup of the nearest path sequence for now
                     if (path.Count != 0)
                     {
-                        pathToNearestLifePack = new Stack<Point>(path.Reverse());
+                        pathToNearestLifePack = new Stack<Cell>(path.Reverse());
                     }
                 }
             }
@@ -297,7 +298,7 @@ namespace tankUI.AI
             {
                 //  Console.WriteLine("lowestTimeCost= " + lowestTimeCostToCoinPile + " timeCostToTarget= " + timeCostToTarget + " lifeTime" + coinPile.lifeTime);
 
-                Point goal = new Point(coinPile.locationX, coinPile.locationY);
+                Cell goal = new Cell(coinPile.locationX, coinPile.locationY);
 
                 if (start.x == goal.x && start.y == goal.y) // otherwise pathfinder will break
                 {
@@ -307,7 +308,7 @@ namespace tankUI.AI
 
                 }
 
-                var pathFinder = new PathFinder(grid, start, goal);
+                var pathFinder = new AStarSearchAlgo(grid, start, goal);
                 BuildPath(start, goal, pathFinder.cameFrom);
 
                 // filter the reachable coins in time
@@ -319,7 +320,7 @@ namespace tankUI.AI
                     // keep the backup of the nearestpath sequence for now
                     if (path.Count != 0)
                     {
-                        pathToNearestCoinPile = new Stack<Point>(path.Reverse());
+                        pathToNearestCoinPile = new Stack<Cell>(path.Reverse());
                     }
                 }
 

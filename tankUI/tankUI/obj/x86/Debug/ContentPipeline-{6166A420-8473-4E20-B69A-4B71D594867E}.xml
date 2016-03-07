@@ -2,31 +2,13 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>background2.jpg</Source>
-      <Name>background2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\background2.xnb</Output>
-      <Time>2015-12-08T21:17:07.6971745+05:30</Time>
-    </Item>
-    <Item>
       <Source>background.jpg</Source>
       <Name>background</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\background.xnb</Output>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\background.xnb</Output>
       <Time>2015-12-09T06:02:41.22603+05:30</Time>
-    </Item>
-    <Item>
-      <Source>button.png</Source>
-      <Name>button</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\button.xnb</Output>
-      <Time>2015-12-09T07:33:05.6328697+05:30</Time>
     </Item>
     <Item>
       <Source>tank1.png</Source>
@@ -34,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\tank1.xnb</Output>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\tank1.xnb</Output>
       <Time>2015-12-16T19:02:06.5098064+05:30</Time>
     </Item>
     <Item>
@@ -43,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\coin.xnb</Output>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\coin.xnb</Output>
       <Time>2015-12-16T19:18:13.9066086+05:30</Time>
     </Item>
     <Item>
@@ -52,7 +34,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\health.xnb</Output>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\health.xnb</Output>
       <Time>2015-12-16T19:19:39.860905+05:30</Time>
     </Item>
     <Item>
@@ -61,7 +43,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\water.xnb</Output>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\water.xnb</Output>
       <Time>2015-12-16T11:02:19.7860896+05:30</Time>
     </Item>
     <Item>
@@ -70,7 +52,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\brick1.xnb</Output>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\brick1.xnb</Output>
       <Time>2015-12-16T11:55:37.9444381+05:30</Time>
     </Item>
     <Item>
@@ -79,8 +61,143 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\stone1.xnb</Output>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\stone1.xnb</Output>
       <Time>2015-12-16T11:55:47.3797638+05:30</Time>
+    </Item>
+    <Item>
+      <Source>background3.jpg</Source>
+      <Name>background3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\background3.xnb</Output>
+      <Time>2016-03-08T01:42:00.5960718+05:30</Time>
+    </Item>
+    <Item>
+      <Source>brick_25.png</Source>
+      <Name>brick_25</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\brick_25.xnb</Output>
+      <Time>2016-03-08T01:42:25.117657+05:30</Time>
+    </Item>
+    <Item>
+      <Source>brick_50.png</Source>
+      <Name>brick_50</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\brick_50.xnb</Output>
+      <Time>2016-03-08T01:42:37.5799993+05:30</Time>
+    </Item>
+    <Item>
+      <Source>brick_75.png</Source>
+      <Name>brick_75</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\brick_75.xnb</Output>
+      <Time>2016-03-08T01:42:45.5956253+05:30</Time>
+    </Item>
+    <Item>
+      <Source>brick_full.png</Source>
+      <Name>brick_full</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\brick_full.xnb</Output>
+      <Time>2016-03-08T01:43:04.9521051+05:30</Time>
+    </Item>
+    <Item>
+      <Source>brownTank.png</Source>
+      <Name>brownTank</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\brownTank.xnb</Output>
+      <Time>2016-03-08T01:43:09.4364809+05:30</Time>
+    </Item>
+    <Item>
+      <Source>bullet.png</Source>
+      <Name>bullet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\bullet.xnb</Output>
+      <Time>2016-03-08T01:43:14.3739859+05:30</Time>
+    </Item>
+    <Item>
+      <Source>cell3.png</Source>
+      <Name>cell3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\cell3.xnb</Output>
+      <Time>2016-03-08T01:43:30.3079516+05:30</Time>
+    </Item>
+    <Item>
+      <Source>greenTank.png</Source>
+      <Name>greenTank</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\greenTank.xnb</Output>
+      <Time>2016-03-08T01:43:47.0857515+05:30</Time>
+    </Item>
+    <Item>
+      <Source>purpleTank.png</Source>
+      <Name>purpleTank</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\purpleTank.xnb</Output>
+      <Time>2016-03-08T01:43:56.413877+05:30</Time>
+    </Item>
+    <Item>
+      <Source>redTank.png</Source>
+      <Name>redTank</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\redTank.xnb</Output>
+      <Time>2016-03-08T01:44:01.8265977+05:30</Time>
+    </Item>
+    <Item>
+      <Source>rocket.png</Source>
+      <Name>rocket</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\rocket.xnb</Output>
+      <Time>2016-03-08T01:44:06.9730328+05:30</Time>
+    </Item>
+    <Item>
+      <Source>tank3.png</Source>
+      <Name>tank3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\tank3.xnb</Output>
+      <Time>2016-03-08T01:44:11.8866444+05:30</Time>
+    </Item>
+    <Item>
+      <Source>textArea3.png</Source>
+      <Name>textArea3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\textArea3.xnb</Output>
+      <Time>2016-03-08T01:44:18.0585212+05:30</Time>
+    </Item>
+    <Item>
+      <Source>empty.png</Source>
+      <Name>empty</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\empty.xnb</Output>
+      <Time>2016-03-08T01:44:24.3553982+05:30</Time>
     </Item>
     <Item>
       <Source>SpriteFont1.spritefont</Source>
@@ -88,8 +205,53 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
       <Time>2015-12-09T07:34:32.1411704+05:30</Time>
+    </Item>
+    <Item>
+      <Source>myFont.spritefont</Source>
+      <Name>myFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\myFont.xnb</Output>
+      <Time>2016-03-08T01:44:31.2147733+05:30</Time>
+    </Item>
+    <Item>
+      <Source>cell5.png</Source>
+      <Name>cell5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\cell5.xnb</Output>
+      <Time>2016-03-08T01:52:14.8511545+05:30</Time>
+    </Item>
+    <Item>
+      <Source>water1.jpg</Source>
+      <Name>water1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\water1.xnb</Output>
+      <Time>2016-03-08T02:00:23.0222289+05:30</Time>
+    </Item>
+    <Item>
+      <Source>cell.jpg</Source>
+      <Name>cell</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\cell.xnb</Output>
+      <Time>2016-03-08T02:06:37.1735379+05:30</Time>
+    </Item>
+    <Item>
+      <Source>cell1.jpg</Source>
+      <Name>cell1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\cell1.xnb</Output>
+      <Time>2016-03-08T02:13:01.9435365+05:30</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -98,10 +260,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUIContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUIContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

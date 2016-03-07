@@ -10,9 +10,9 @@ namespace tankUI
         /// </summary>
         static void Main(string[] args)
         {
-            using (Game1 game = new Game1())
+            using (Game1 game0 = new Game1())
             {
-                game.Run();
+                game0.Run();
             }
         }
     }

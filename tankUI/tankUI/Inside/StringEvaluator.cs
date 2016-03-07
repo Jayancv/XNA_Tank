@@ -12,6 +12,7 @@ namespace tankUI.Inside
     {
 
         private Game1 com;
+        private Game2 game;
         private string data;
         public Player P1, P2, P3, P4, P0;     //player objects , only 5 object
         int counter;
@@ -26,10 +27,11 @@ namespace tankUI.Inside
 
 
         }
-        public void evaluate(String data, Game1 com)
+        public void evaluate(String data, Game1 com ,Game2 game)
         {
             try { 
             this.com = com;
+            this.game = game;
             this.data = data;
             data = data.Remove(data.Length - 1);
             string[] lines = Regex.Split(data, ":");    //split recevied data sting and split it :
@@ -68,17 +70,28 @@ namespace tankUI.Inside
                 for (int y = 0; y < sublines.Length; y++)
                 {
                     string[] cell = Regex.Split(sublines[y], ",");
-                    int a = Int32.Parse(cell[0]) * 50;
-                    int b = Int32.Parse(cell[1]) * 50;
-                    Vector2 v = new Vector2(a, b);
-                    if (x == 2)
+                    int a = Int32.Parse(cell[0]) ;
+                    int b = Int32.Parse(cell[1]) ;
+                    Vector2 v = new Vector2(a*50, b*50);
+                    if (x == 2) { 
                         com.bricks.Add(v);
-                    if (x == 3)
+                    game.board[b, a] = "B";
+                       
+                    }
+                    if (x == 3){
                         com.stones.Add(v);
+                    game.board[b, a] = "S";
+                    }
                     if (x == 4)
+                    {
                         com.water1.Add(v);
+                        game.board[b, a] = "W";
+                    }
                 }
             }
+            
+            game.brickLen = com.bricks.Count;
+            
         }
 
 
@@ -92,6 +105,7 @@ namespace tankUI.Inside
             int time = Int32.Parse(lines[2]);
 
             Coin coin = new Coin(x, y, time, val);
+            game.Coin.Add(coin);
             Vector2 co = new Vector2(x*50, y*50);
             com.coins.Add(co);
             
@@ -114,8 +128,9 @@ namespace tankUI.Inside
             int y = Int32.Parse(codinate[1]);
             int val = 10;
             int time = Int32.Parse(lines[2]);
-
+           
             LifePack life = new LifePack(x, y, time, val);
+            game.Lifepacket.Add(life);
             Vector2 li = new Vector2(x * 50, y * 50);
             com.lifePacks.Add(li);
             //  Button bn = com.selectbtn(x, y);
@@ -147,9 +162,12 @@ namespace tankUI.Inside
                     P0 = new Player(); 
                     P0.setX(x);
                     P0.setY(y);
+                    P0.playerNumber = 1;
                     P0.Color = Color.Red;
                     com.players.Add(P0);
                     counter++;
+                    //game.player[0] = P0;
+                   game.me = P0;
                     
                 }
                 else if (sublines[0] == "P1")
@@ -157,9 +175,11 @@ namespace tankUI.Inside
                     P1 = new Player(); 
                     P1.setX(x);
                     P1.setY(y);
+                    P1.playerNumber = 2;
                     P1.Color = Color.Yellow;
                     com.players.Add(P1);
                     counter++;
+                    //game.player[1] = P1;
 
                 }
                 else if (sublines[0] == "P2")
@@ -167,33 +187,40 @@ namespace tankUI.Inside
                     P2 = new Player();  
                     P2.setX(x);
                     P2.setY(y);
+                    P2.playerNumber = 3;
                     P2.Color = Color.Green;
                     com.players.Add(P2);
                     counter++;
+                    //game.player[2] = P2;
                 }
                 else if (sublines[0] == "P3")
                 {
                     P3 = new Player();  
                     P3.setX(x);
                     P3.setY(y);
+                    P3.playerNumber = 4;
                     P3.Color = Color.Blue;
                     com.players.Add(P3);
                     counter++;
+                    //game.player[3] = P3;
                 }
                 else if (sublines[0] == "P4")
                 {
                     P4 = new Player();   
                     P4.setX(x);
                     P4.setY(y);
+                    P4.playerNumber = 5;
                     P4.Color = Color.Purple;
                     com.players.Add(P4);
                     counter++;
+                   // game.player[4] = P4;
                 }
                 // Button bn = com.selectbtn(x, y);
                 // com.tankDisplay(bn, sublines[0], dir);
 
             } 
             }
+           
         }
 
 

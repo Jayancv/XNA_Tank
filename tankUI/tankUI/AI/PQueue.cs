@@ -11,10 +11,7 @@ namespace tankUI.AI
 
         public int Count
         {
-            get 
-            { 
-                return elements.Count; 
-            }
+            get { return elements.Count; }
         }
 
         public void Enqueue(T item, int priority)
@@ -22,6 +19,7 @@ namespace tankUI.AI
             elements.Add(Tuple.Create(item, priority));
         }
 
+        // Dequeue the lowest valued item
         public T Dequeue()
         {
             int bestIndex = 0;

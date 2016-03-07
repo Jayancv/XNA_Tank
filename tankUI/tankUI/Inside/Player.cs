@@ -8,75 +8,24 @@ namespace tankUI.Inside
 {
    public  class Player
     {
-        
-        private int dir;
-        private int  points, coins;
-        bool shot;
-        public Vector2 Position;
-        public bool IsAlive= true;
-        public Color Color;
-        
-        /*
-        public Player(Vector2 p, int y, Color c, int dir)
-        {
-            Position = p;
-            Color = c;
-            this.dir = dir;
-            health = 0;
-            points = 0;
-            coins = 0;
-
-            shot = false;
-        }
-         * */
-        public Player() {
-            
-            dir = 0;
-        }
-        public void move(int x1, int y1, int dir1, bool sh, int h1, int p1, int c1)
-        {
-            x = x1;                                //new place 
-            y = y1;
-            dir = dir1;
-            health = h1;
-            points = p1;
-            coins = c1;
-            shot = sh;
-
-        }
-        public int health { get; set; }
-        public int x { get; set; }
-        public int y { get; set; }
         public int playerNumber { get; set; }
-        public void setX(int x1)
-        {
-            this.x = x1;
-        }
-        public void setY(int y1)
-        {
-            this.y =y1;
-        }
-        public Vector2 getPossition(){
-            Vector2 vect = new Vector2((x*50)+25, (y*50)+25);
-            return vect;
-        }
-        public void setDirection(int d)
-        {
-            this.dir = d;
-        }
-        public int getDirection()
-        {
-            return dir;
-        }
-        public void setVariable(int d,bool s,int helth, int pt, int c)
-        {
+        public int playerLocationX { get; set; }
+        public int playerLocationY { get; set; }
+        public int direction { get; set; }
 
-            dir = d;
-            health = helth;
-            points = pt;
-            coins = c;
-            shot = s;
+        public int whetherShot { get; set; }
+        public int health { get; set; }
+        public int coins { get; set; }
+        public int points { get; set; }
+        public Boolean timeToShot { get; set; }
 
+        /// <summary>
+        /// display the player details
+        /// </summary>
+        /// <returns></returns>
+        public String toString()
+        {
+            return "\nPlayer Number: " + (playerNumber).ToString() + "\nPlayer Location: " + (playerLocationX).ToString() + "," + (playerLocationY).ToString() + "\nPlayer direction: " + (direction).ToString() + "\nWhether shot: " + (whetherShot).ToString() + "\nCoins: " + (coins).ToString() + "\nHealth : " + (health).ToString() + "\nPoints : " + (points).ToString();
         }
     }
 }

@@ -21,30 +21,26 @@ namespace tankUI.ClientConnector
         TcpClient reciever = null;
         Stream r_stream = null;
 
-
-
         private static BinaryWriter writer;
         private Parser parser;
         private static NetworkStream stream = null;
 
+        private Thread thread;
         private Game2 game;
+
         private bool errorOcurred;
         int attempt;
-        private Thread thread;
-
         private Cell nextMove;
         private Search ai;
         private bool packPresents;
 
 
-       // public Client() { }
-
         public Client(Game2 game)
         {
             this.game = game;
             this.parser = new Parser(game);
-            thread = new Thread(new ThreadStart(receiveData));
-            ai = new Search(game);
+            thread = new Thread(new ThreadStart(receiveData)); //strat receiveing thread
+            ai = new Search(game);  
             packPresents = false;
             errorOcurred = false;
 
@@ -85,63 +81,42 @@ namespace tankUI.ClientConnector
                         messageFromServer = System.Text.Encoding.ASCII.GetString(bytes, 0, i);
                     }
 
-                    // Print the raw message from the server
-                    Console.WriteLine("\nServer messege:- " + messageFromServer + "\n");
+                   
 
+
+                    //-------------------------//
                     parser.parse(messageFromServer);
-                    // game.addPacksToBoard();
 
-
-
-                    // path finding starts here
                     if (messageFromServer != null)
                     {
                         if (messageFromServer.StartsWith("G"))
                         {
-                            //  Console.WriteLine("inide G");
-                            // to keep syn the game clock with server clock
-                            game.gameClock += 1;
 
-                            Console.WriteLine("Game Clock is " + game.gameClock);
-
+                            game.gameClock += 1;                           // to keep sync the game clock with server clock
                             try
                             {
                                game.addPacksToBoard();
-                            game.updatePacks(game.gameClock);
+                               game.updatePacks(game.gameClock);
 
 
-                            Console.WriteLine("\n");
-
-
-                       
-
-                            Console.WriteLine("\n");
-
-                            //path finding starts ( The whole ai business happens here..... )
+                            //path searching starts ( AI part starts here )
                             nextMove = ai.findPath(game);
 
-                            /*  //solution to the exception (if me and an enemy tries to  jump to a cell simultaniously
-                            String gameCell = game.board[nextMove.x, nextMove.y];
-                            if (gameCell == "0" || gameCell == "1" || gameCell == "2" || gameCell == "3" || gameCell == "4")
-                            {
-                                continue;
-                            }
-                            */
-                            int currentX = game.myTank.playerLocationX;
+
+                            int currentX = game.myTank.playerLocationX;       //get my current location
                             int currentY = game.myTank.playerLocationY;
 
-                            //    Console.WriteLine("\nNextX:- " + nextMove.x + " NextY:- " + nextMove.y + "\n");
-
-
-
-                            // no movements if there isn't a reachable goal on the board
+                            // no movements if there isn't a reachable goal on the board (surrent location and nextMove are equals)
                             if (nextMove.x != currentX || nextMove.y != currentY)
                             {
-
                                 packPresents = true;
                             }
 
-                            // #### Detect an Enemy who can be shoot out ####
+
+
+
+                                
+                            //--------- Detect an Enemy who can be shoot out ---------------
                             /* STEPS
 
                             1. A* search other players
@@ -151,29 +126,20 @@ namespace tankUI.ClientConnector
                             
                             */
                            
-                                if (game.enemyPresents)
-                            {
-                                //  Console.WriteLine("I can see an enemy !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-
+                                if (game.enemyPresents){
                                 int myDirection = game.myTank.direction;
-                                //    Console.WriteLine("My direction is " + myDirection);
-                                // shoot
+                              
                                 if (nextMove.x == currentX + 1)
                                 {
                                     if (myDirection == 1)
                                     {
                                         shoot();
-
-
                                     }
-                                    // if Im gonna shoot, instead of protecting myself                            
-
-
+                                  
                                     else
                                     {
                                         sendData("RIGHT#");
                                     }
-
                                     r_stream.Close();
                                     listener.Stop();
                                     reciever.Close();
@@ -189,10 +155,6 @@ namespace tankUI.ClientConnector
                                             shoot();
 
                                         }
-
-                                    // if Im gonna shoot, instead of protecting myself                            
-
-
                                     else
                                     {
                                         sendData("LEFT#");
@@ -212,9 +174,6 @@ namespace tankUI.ClientConnector
 
                                         }
 
-                                    // if Im gonna shoot, instead of protecting myself                            
-
-
                                     else
                                     {
                                         sendData("DOWN#");
@@ -232,8 +191,6 @@ namespace tankUI.ClientConnector
                                     {
                                             shoot();
                                         }
-
-                                    // if Im gonna shoot, instead of protecting myself                            
 
                                     else
                                     {
@@ -257,10 +214,7 @@ namespace tankUI.ClientConnector
                             
                                 if (packPresents)
                                 {
-                                    //    Console.WriteLine("inside pack presents");
-                                    //    Console.WriteLine(currentX+","+ currentY+ " next move:- " + nextMove.x+ "," + nextMove.y);
-
-                                    // move the tank
+                                  
                                     if (nextMove.x == currentX + 1)
                                     {
                                         sendData("RIGHT#");
@@ -287,8 +241,7 @@ namespace tankUI.ClientConnector
                             }
                             catch (Exception ex)
                             {
-                                Console.WriteLine("me and an enemy tries to  jump to a cell simultaniously%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-                                Console.WriteLine("inside catch-------"+ex.ToString());
+                                
                                 shoot();
                                 continue;
                             }

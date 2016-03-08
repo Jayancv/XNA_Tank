@@ -150,7 +150,7 @@ namespace tankUI
         protected override void Initialize()
         {
 
-            client.sendJOINrequest();
+            client.sendJOINrequest();                            //start the game 
             graphics.PreferredBackBufferWidth = 1050;
             graphics.PreferredBackBufferHeight = 550;
             graphics.IsFullScreen = false;

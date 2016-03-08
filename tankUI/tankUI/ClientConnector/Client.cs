@@ -106,15 +106,14 @@ namespace tankUI.ClientConnector
 
                             try
                             {
-                                game.addPacksToBoard();
+                               game.addPacksToBoard();
                             game.updatePacks(game.gameClock);
 
 
                             Console.WriteLine("\n");
 
 
-                            // Print the map (Game board) on the Console
-                            parser.tokenizer.printBoard();
+                       
 
                             Console.WriteLine("\n");
 

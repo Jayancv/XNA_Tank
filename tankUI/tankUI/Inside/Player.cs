@@ -21,7 +21,6 @@ namespace tankUI.Inside
         public int coins { get; set; }
         public int points { get; set; }
         public Boolean timeToShot { get; set; }
-
       
     }
 }

@@ -189,7 +189,7 @@ namespace tankUI.AI
                 }
             }
             var start = new Cell(game.myTank.playerLocationX, game.myTank.playerLocationY);
-            //Console.WriteLine("my current location is "+ game.me.playerLocationX + game.me.playerLocationY);
+            
 
             //#################### Begins the Procedure to Get the proper goal to follow. #####################################
 
@@ -221,17 +221,15 @@ namespace tankUI.AI
 
                 // TO DO :- if enemy die, remove it and gain coin pile (spoil).
 
-                //  Console.WriteLine("Total number of players " + game.totalPlayers);
-                //   Console.WriteLine("Enemy Number " + enemy.playerNumber + " my Num " + game.myPlayerNumber);
+               
                 if (enemy.playerNumber == game.myPlayerNumber)
-                {
-                    //      Console.WriteLine("In the if,,..Enemy Number " + enemy.playerNumber + " my Num " +game.myPlayerNumber);
+                {                
                     continue;
                 }
 
 
                 Cell goal = new Cell(enemy.playerLocationX, enemy.playerLocationY);
-                //  Console.WriteLine(game.myPlayerNumber+" Enemy Loc "+ goal.x + ","+ goal.y + "Enemy NO " + enemy.playerNumber + " -----------------------------------------------------");
+                
                 var pathFinder = new AStarSearchAlgo(gridWithoutWater, start, goal);
 
 
@@ -257,13 +255,13 @@ namespace tankUI.AI
 
             foreach (var lifePack in game.Lifepacket)
             {
-                //  Console.WriteLine("lowestTimeCost= " + lowestTimeCostToLifePack + " timeCostToTarget= " + timeCostToTarget + " lifeTime" + lifePack.lifeTime);
+              
 
                 Cell goal = new Cell(lifePack.locationX, lifePack.locationY);
 
                 if (start.x == goal.x && start.y == goal.y) // otherwise pathfinder will break
                 {
-                    // Console.WriteLine("Life Pack Accuired!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    
                     accuiredLifePacket = lifePack;
                     continue;
 
@@ -275,7 +273,7 @@ namespace tankUI.AI
                 // filter the reachable life packs in time
                 if (timeCostToTarget <= lifePack.lifeTime && timeCostToTarget < lowestTimeCostToLifePack) // < or <=
                 {
-                    // Console.WriteLine("New lowest time cost = " + timeCostToTarget);
+                   
                     lowestTimeCostToLifePack = timeCostToTarget;
 
                     // keep the backup of the nearest path sequence for now
@@ -288,7 +286,7 @@ namespace tankUI.AI
 
             if (game.Lifepacket.Count != 0)
             {
-                // Console.WriteLine("Life Pack removed!");
+               
                 game.Lifepacket.Remove(accuiredLifePacket);
             }
 
@@ -296,13 +294,13 @@ namespace tankUI.AI
 
             foreach (var coinPile in game.Coin)
             {
-                //  Console.WriteLine("lowestTimeCost= " + lowestTimeCostToCoinPile + " timeCostToTarget= " + timeCostToTarget + " lifeTime" + coinPile.lifeTime);
+                
 
                 Cell goal = new Cell(coinPile.locationX, coinPile.locationY);
 
                 if (start.x == goal.x && start.y == goal.y) // otherwise pathfinder will break
                 {
-                    //  Console.WriteLine("Coin Accuired!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                   
                     accuiredCoin = coinPile;
                     continue;
 
@@ -314,7 +312,7 @@ namespace tankUI.AI
                 // filter the reachable coins in time
                 if (timeCostToTarget <= coinPile.lifeTime && timeCostToTarget <= lowestTimeCostToCoinPile) // < or <=
                 {
-                    // Console.WriteLine("New lowest time cost = " + timeCostToTarget);
+                   
                     lowestTimeCostToCoinPile = timeCostToTarget;
 
                     // keep the backup of the nearestpath sequence for now
@@ -328,7 +326,7 @@ namespace tankUI.AI
 
             if (game.Coin.Count != 0)
             {
-                //  Console.WriteLine("Coin removed!");
+                
                 game.Coin.Remove(accuiredCoin);
             }
 

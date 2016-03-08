@@ -128,8 +128,8 @@ namespace tankUI.ClientConnector
                                 continue;
                             }
                             */
-                            int currentX = game.me.playerLocationX;
-                            int currentY = game.me.playerLocationY;
+                            int currentX = game.myTank.playerLocationX;
+                            int currentY = game.myTank.playerLocationY;
 
                             //    Console.WriteLine("\nNextX:- " + nextMove.x + " NextY:- " + nextMove.y + "\n");
 
@@ -156,7 +156,7 @@ namespace tankUI.ClientConnector
                             {
                                 //  Console.WriteLine("I can see an enemy !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
-                                int myDirection = game.me.direction;
+                                int myDirection = game.myTank.direction;
                                 //    Console.WriteLine("My direction is " + myDirection);
                                 // shoot
                                 if (nextMove.x == currentX + 1)

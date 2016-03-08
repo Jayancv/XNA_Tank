@@ -94,19 +94,19 @@ namespace tankUI.Inside
             for (int i = 0; i < game.brickWalls.Length; i++)
             {
                 String[] j = game.brickWalls[i].Split(',');
-                game.board[int.Parse(j[1]), int.Parse(j[0])] = "B";
+                game.gameBoard[int.Parse(j[1]), int.Parse(j[0])] = "B";
 
             }
             for (int i = 0; i < game.stone.Length; i++)
             {
                 String[] j = game.stone[i].Split(',');
-                game.board[int.Parse(j[1]), int.Parse(j[0])] = "S";
+                game.gameBoard[int.Parse(j[1]), int.Parse(j[0])] = "S";
 
             }
             for (int i = 0; i < game.water.Length; i++)
             {
                 String[] j = game.water[i].Split(',');
-                game.board[int.Parse(j[1]), int.Parse(j[0])] = "W";
+                game.gameBoard[int.Parse(j[1]), int.Parse(j[0])] = "W";
 
             }
             // keep a copy of the initial board without player locations
@@ -329,7 +329,7 @@ namespace tankUI.Inside
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    Console.Write(game.board[i, j] + " ");
+                    Console.Write(game.gameBoard[i, j] + " ");
                 }
                 Console.WriteLine();
             }
@@ -344,7 +344,7 @@ namespace tankUI.Inside
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    game.board[i, j] = ".";
+                    game.gameBoard[i, j] = ".";
                 }
             }
         }
@@ -358,7 +358,7 @@ namespace tankUI.Inside
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    game.InitialBoard[i, j] = game.board[i, j];
+                    game.InitialBoard[i, j] = game.gameBoard[i, j];
                 }
             }
         }
@@ -372,7 +372,7 @@ namespace tankUI.Inside
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    game.board[i, j] = game.InitialBoard[i, j];
+                    game.gameBoard[i, j] = game.InitialBoard[i, j];
                 }
             }
             Console.WriteLine("restoring bode");
@@ -381,7 +381,7 @@ namespace tankUI.Inside
                 if (!(b.isFull))
                 {
                     Console.WriteLine("Detected a fully damaged brick!!");
-                    game.board[b.locationY, b.locationX] = ".";
+                    game.gameBoard[b.locationY, b.locationX] = ".";
                 }
             }
         }

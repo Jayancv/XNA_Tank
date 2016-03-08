@@ -17,9 +17,7 @@ C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\tankUI\tankUI\bin\x8
 C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\obj\x86\Debug\tankUI.csprojResolveAssemblyReference.cache
 C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\obj\x86\Debug\tankUI.exe
-C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\background2.xnb
 C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\background.xnb
-C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\button.xnb
 C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\tank1.xnb
 C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\coin.xnb
 C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\health.xnb
@@ -80,3 +78,23 @@ C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\cell5
 C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\water1.xnb
 C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\cell.xnb
 C:\Users\Jayan\Desktop\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\cell1.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\background3.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\brick_25.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\brick_50.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\brick_75.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\brick_full.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\brownTank.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\bullet.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\cell3.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\greenTank.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\purpleTank.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\redTank.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\rocket.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\tank3.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\textArea3.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\empty.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\cell5.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\water1.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\cell.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\cell1.xnb
+C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tankUI\XNA_Tank\tankUI\tankUI\bin\x86\Debug\Content\myFont.xnb

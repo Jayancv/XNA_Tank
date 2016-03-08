@@ -98,7 +98,7 @@ namespace tankUI.AI
             lowestTimeCostToCoinPile = 1000;
             lowestTimeCostToLifePack = 1000;
 
-            String[,] board = game.board;
+            String[,] board = game.gameBoard;
 
             var grid = new Grid(10, 10);
 
@@ -185,10 +185,10 @@ namespace tankUI.AI
             {
                 if (p.playerNumber == game.myPlayerNumber)
                 {
-                    game.me = p;
+                    game.myTank = p;
                 }
             }
-            var start = new Cell(game.me.playerLocationX, game.me.playerLocationY);
+            var start = new Cell(game.myTank.playerLocationX, game.myTank.playerLocationY);
             //Console.WriteLine("my current location is "+ game.me.playerLocationX + game.me.playerLocationY);
 
             //#################### Begins the Procedure to Get the proper goal to follow. #####################################

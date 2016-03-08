@@ -61,8 +61,8 @@ namespace tankUI
 
         public List<Player> players;
 
-        int topMargin = 60;
-        int leftMargin = 60;
+        int topMargin = 40;
+        int leftMargin = 40;
         SpriteFont font;
         int gridCellSize = 50;
         Vector2 position = Vector2.Zero;
@@ -169,8 +169,8 @@ namespace tankUI
         {
 
             client.sendJOINrequest();
-            graphics.PreferredBackBufferWidth = 1250;
-            graphics.PreferredBackBufferHeight = 650;
+            graphics.PreferredBackBufferWidth = 1050;
+            graphics.PreferredBackBufferHeight = 550;
             graphics.IsFullScreen = false;
             //tankTexture = Content.Load<Texture2D>("tank3");
             tankColours = new Color[] { Color.OrangeRed, Color.Plum, Color.LightGreen, Color.SkyBlue, Color.Chocolate };
@@ -210,7 +210,7 @@ namespace tankUI
 
 
             backgroundTexture = Content.Load<Texture2D>("background");
-            foregroundTexture = Content.Load<Texture2D>("background2");
+            foregroundTexture = Content.Load<Texture2D>("background3");
             stoneTexture = Content.Load<Texture2D>("stone1");
             waterTexture = Content.Load<Texture2D>("water1");
             lifeTexture = Content.Load<Texture2D>("health");
@@ -285,7 +285,7 @@ namespace tankUI
                 for (int j = 0; j < 10; j++)
                 {
 
-                    if (game.board[i, j] == "B" && init == 0)
+                    if (game.gameBoard[i, j] == "B" && init == 0)
                     {
                         gridCell[j, i].occupied = true;
                         gridCell[j, i].occupiedBy = "B";
@@ -297,28 +297,28 @@ namespace tankUI
                         brickIndex++;
                         spriteBatch.Draw(brickTexture1, new Vector2(j * gridCellSize + leftMargin, i * gridCellSize + topMargin), Color.White);
                     }
-                    if (game.board[i, j] == "W")
+                    if (game.gameBoard[i, j] == "W")
                     {
                         gridCell[j, i].occupied = true;
                         gridCell[j, i].occupiedBy = "W";
                         spriteBatch.Draw(waterTexture, new Vector2(j * gridCellSize + leftMargin, i * gridCellSize + topMargin), Color.White);
                     }
-                    if (game.board[i, j] == "S")
+                    if (game.gameBoard[i, j] == "S")
                     {
                         gridCell[j, i].occupied = true;
                         gridCell[j, i].occupiedBy = "S";
                         spriteBatch.Draw(stoneTexture, new Vector2(j * gridCellSize + leftMargin, i * gridCellSize + topMargin), Color.White);
                     }
-                    if (game.board[i, j] == "L")
+                    if (game.gameBoard[i, j] == "L")
                     {
                         spriteBatch.Draw(lifeTexture, new Vector2(j * gridCellSize + leftMargin, i * gridCellSize + topMargin), Color.White);
                     }
-                    if (game.board[i, j] == "C")
+                    if (game.gameBoard[i, j] == "C")
                     {
                         spriteBatch.Draw(coinTexture, new Vector2(j * gridCellSize + leftMargin, i * gridCellSize + topMargin), Color.White);
                     }
-                    if (game.board[i, j] == "X") { }
-                    if (game.board[i, j] == "0")
+                    if (game.gameBoard[i, j] == "X") { }
+                    if (game.gameBoard[i, j] == "0")
                     {
                         //  Console.WriteLine("player 0: location:" + i + "," + j + " isempty:" + tank[0].isEmpty);
                         init = 1;
@@ -354,7 +354,7 @@ namespace tankUI
 
 
                     }
-                    if (game.board[i, j] == "1")
+                    if (game.gameBoard[i, j] == "1")
                     {
                         player = game.player[1];
 
@@ -386,7 +386,7 @@ namespace tankUI
                         }
 
                     }
-                    if (game.board[i, j] == "2")
+                    if (game.gameBoard[i, j] == "2")
                     {
                         player = game.player[2];
 
@@ -419,7 +419,7 @@ namespace tankUI
                             //Console.WriteLine("tank 2 occupied: row:" + j + "column:" + i + "occupied:" + gridCell[i, j].occupied);
                         }
                     }
-                    if (game.board[i, j] == "3")
+                    if (game.gameBoard[i, j] == "3")
                     {
                         player = game.player[3];
 
@@ -447,7 +447,7 @@ namespace tankUI
                             gridCell[j, i].occupiedBy = "3";
                         }
                     }
-                    if (game.board[i, j] == "4")
+                    if (game.gameBoard[i, j] == "4")
                     {
                         player = game.player[4];
 
@@ -497,21 +497,21 @@ namespace tankUI
 
         private void DrawText()
         {
-            spriteBatch.Draw(textArea, new Rectangle(780, 60, 400, 400), Color.White);
-            spriteBatch.DrawString(font, "My player number:" + game.myPlayerNumber, new Vector2(900, 90), Color.Black);
+            spriteBatch.Draw(textArea, new Rectangle(580, 60, 400, 400), Color.White);
+            spriteBatch.DrawString(font, "My player number:" + game.myPlayerNumber, new Vector2(700, 90), Color.Black);
             for (int i = 0; i < 5; i++)
             {
-                //spriteBatch.DrawString(font, "Player:" + i.ToString(), new Vector2(800, 120 + 65 * i), textCoulours[i]);
-                spriteBatch.DrawString(font, i.ToString(), new Vector2(860, 200 + 42 * i), textCoulours[i]);
+                
+                spriteBatch.DrawString(font, i.ToString(), new Vector2(660, 200 + 42 * i), textCoulours[i]);
                 if (!tank[i].isEmpty)
                 {
 
                     //spriteBatch.DrawString(font, "Points:" + tank[i].points.ToString(), new Vector2(800, 145 + 65 * i), textCoulours[i]);
                     //spriteBatch.DrawString(font, "Health:" + tank[i].health.ToString(), new Vector2(925, 145 + 65 * i), textCoulours[i]);
                     //spriteBatch.DrawString(font, "Coins:" + tank[i].points.ToString(), new Vector2(1050, 145 + 65 * i), textCoulours[i]);
-                    spriteBatch.DrawString(font, tank[i].points.ToString(), new Vector2(925, 200 + 42 * i), textCoulours[i]);
-                    spriteBatch.DrawString(font, tank[i].health.ToString(), new Vector2(1010, 200 + 42 * i), textCoulours[i]);
-                    spriteBatch.DrawString(font, tank[i].points.ToString(), new Vector2(1085, 200 + 42 * i), textCoulours[i]);
+                    spriteBatch.DrawString(font, tank[i].points.ToString(), new Vector2(725, 200 + 42 * i), textCoulours[i]);
+                    spriteBatch.DrawString(font, tank[i].health.ToString(), new Vector2(810, 200 + 42 * i), textCoulours[i]);
+                    spriteBatch.DrawString(font, tank[i].coins.ToString(), new Vector2(885, 200 + 42 * i), textCoulours[i]);
                 }
 
             }
@@ -692,26 +692,17 @@ namespace tankUI
             tanks = new Texture2D[] { redTankTexture, purpleTankTexture, greenTankTexture, blueTankTexture, brownTankTexture };
             for (int k = 0; k < 5; k++)
             {
-                //if (!tank[k].isEmpty && tank[k].isPlaying)
+               
                 if (tank[k].isPlaying)
                 {
-                    // Console.WriteLine("value of k outside the if:" + k+" health:"+tank[k].health);
+                    
                     if (tank[k].health > 0)
                     {
-                        // Console.WriteLine("k is:" + k+" /////////////////////////////////////////////////////////////////////////////////");
                         spriteBatch.Draw(tanks[k], new Vector2(tank[k].horizontalPosition + gridCellSize / 2, tank[k].verticalPosition + gridCellSize / 2), null, tank[k].tankColor, tank[k].angle, new Vector2(gridCellSize / 2, gridCellSize / 2), 1, SpriteEffects.None, 1);
                     }
-                    else
-                    {
-                        //tank[k].isEmpty = true;
-                        //tank[k].isPlaying = false;
-                    }
+                    
                 }
-                else if (!tank[k].isPlaying)
-                { //Console.WriteLine("tank is not playing:" + k);
-                    // Console.WriteLine("inside else////////////////////////////////////////////////////////////////////////////////");
-                    // spriteBatch.Draw(gridTexture, new Vector2(tank[k].horizontalPosition + gridCellSize / 2, tank[k].verticalPosition + gridCellSize / 2), null, tank[k].tankColor, tank[k].angle, new Vector2(gridCellSize / 2, gridCellSize / 2), 1, SpriteEffects.None, 1);
-                }
+                
             }
         }
 
